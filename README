@@ -1,0 +1,10 @@
+Yang harus di project
+- bikin simple api request
+- setup test (optional)
+- if setup test, also setup (jest-junit) to make test result become readable
+- setup .gitlab-ci.yml
+
+Yang harus dilakukan di gitlab
+- create blank project (staging and/or production)
+- validating credit card (free)
+- assign values to "Settings -> CI/CD -> Variables"
