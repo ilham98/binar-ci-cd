@@ -24,7 +24,7 @@ test:
 
 deploy_staging:
   stage: staging
-  iamge: ruby:latest
+  image: ruby:latest
   script:
     - dpl --provider=heroku --app=$HEROKU_APP_STAGING --api-key=$HEROKU_API_KEY
   only:
@@ -32,7 +32,7 @@ deploy_staging:
 
 deploy_production:
   stage: production
-  iamge: ruby:latest
+  image: ruby:latest
   script:
     - dpl --provider=heroku --app=$HEROKU_APP_PRODUCTION --api-key=$HEROKU_API_KEY
   only:
