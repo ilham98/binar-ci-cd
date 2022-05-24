@@ -13,7 +13,7 @@ stages:
 test:
   stage: test
   script:
-    - npm i npm@latst -g
+    - npm i npm@latest -g
     - npm i
     - npm test
   artifacts:
