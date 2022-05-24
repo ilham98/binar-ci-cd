@@ -1,0 +1,39 @@
+image: node:latest
+
+before_script:
+  - apt-get update -qy
+  - apt-get install -y ruby-dev
+  - gem install dpl
+
+stages:
+  - test
+  - staging
+  - production
+
+test:
+  stage: test
+  script:
+    - npm i npm@latst -g
+    - npm i
+    - npm test
+  artifacts:
+    when: always
+    reports:
+      junit:
+        - junit.xml
+
+deploy_staging:
+  stage: staging
+  iamge: ruby:latest
+  script:
+    - dpl --provider=heroku --app=$HEROKU_APP_STAGING --api-key=$HEROKU_API_KEY
+  only:
+    - staging
+
+deploy_production:
+  stage: production
+  iamge: ruby:latest
+  script:
+    - dpl --provider=heroku --app=$HEROKU_APP_PRODUCTION --api-key=$HEROKU_API_KEY
+  only:
+    - master
